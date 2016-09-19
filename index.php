@@ -13,57 +13,57 @@
 function pre(){ echo '<pre>'; foreach(func_get_args() as $arg){ print_r($arg); } echo '</pre>'; }
 
 function mysort(&$a){
- foreach($a as $el) if(!is_string($el)){ echo('Не строчный массив!'); return FALSE;}
- $n=0;$k=0;
- $spis1=array();
- $n=count($a); $iters=0; $maxi=100;
- while($k<$n-1){ $iters++; if($iters>$maxi){ echo $iters; print_r($a);die('die!');} // сортировка должна продолжаться пока все элементы не встанут на своё место
-  if($n==1) break;
+ foreach($a as $el) if(!is_string($el)){ echo('Не строчный массив!'); return FALSE; }
+ $n = 0; $k = 0; 
+ $spis1 = array(); 
+ $n = count($a); $iters = 0; $maxi = 100; 
+ while($k < $n-1){ $iters++; if($iters>$maxi){ echo $iters; print_r($a); die('die!'); } // сортировка должна продолжаться пока все элементы не встанут на своё место
+  if($n == 1) break; 
   
-  for($i=0;$i<$n;$i++){ // цикл прохода по элементам
-    for($j=0;$j<strlen($a[$i]);$j++){ // цикл прохода по символам текущей строки
-     $c=0; // сбрасываем счётчик совпавших до этого символа символов
-     for($g=0;$g<$j;$g++) if($i+1<count($a) && $g<=strlen($a[$i][$g]) && ord($a[$i][$g])==ord($a[$i+1][$g])) $c++; // подсчитываем число совпавших до этого символа символов и если они совападают можно сравнивать!
-     if($c==$j && $i+1<$n){ // если до этого символа все символы совпали и мы не находимся на последней строке
-      if(ord($a[$i][$j])<=ord($a[$i+1][$j]) && ord($a[$i][$j])!=0) $k++; // если строки равны либо стоят как надо, то увеличиваем счётчик отсортированности
+  for($i = 0; $i<$n; $i++){ // цикл прохода по элементам
+    for($j = 0; $j < strlen($a[$i]); $j++){ // цикл прохода по символам текущей строки
+     $c = 0; // сбрасываем счётчик совпавших до этого символа символов
+     for($g = 0; $g < $j; $g++) if($i+1 < count($a) && $g <= strlen($a[$i][$g]) && ord($a[$i][$g]) == ord($a[$i+1][$g])) $c++; // подсчитываем число совпавших до этого символа символов и если они совападают можно сравнивать!
+     if($c == $j && $i+1 < $n){ // если до этого символа все символы совпали и мы не находимся на последней строке
+      if(ord($a[$i][$j]) <= ord($a[$i+1][$j]) && ord($a[$i][$j])! = 0) $k++; // если строки равны либо стоят как надо, то увеличиваем счётчик отсортированности
        else { // иначе меняем элементы местами  
-        $k=0; //  сбрасываем счётчик подсчёта элементов на своих местах
-        $spis1[0]=$a[$i];	 // меняем элементы местами используя одну дополнительную ячейку такой же структуры
-        $a[$i]=$a[$i+1]; 	 // меняем элементы местами используя одну дополнительную ячейку такой же структуры
-        $a[$i+1]=$spis1[0]; // меняем элементы местами используя одну дополнительную ячейку такой же структуры
+        $k = 0; //  сбрасываем счётчик подсчёта элементов на своих местах
+        $spis1[0] = $a[$i]; 	 // меняем элементы местами используя одну дополнительную ячейку такой же структуры
+        $a[$i] = $a[$i+1]; 	 // меняем элементы местами используя одну дополнительную ячейку такой же структуры
+        $a[$i+1] = $spis1[0]; // меняем элементы местами используя одну дополнительную ячейку такой же структуры
 	  }
-	 } else {if($c==$j) $k++;}
+	 } else {if($c == $j) $k++; }
     }
   }
  }
- return $a;
+ return $a; 
 }
 
-$spis=array('4Vasya','%Petya','Kuka');
-pre(mysort($spis));
+$spis = array('4Vasya','%Petya','Kuka'); 
+pre(mysort($spis)); 
 
-$spis=array('Vasya','Petya','Kuka');
-pre(mysort($spis));
+$spis = array('Vasya','Petya','Kuka'); 
+pre(mysort($spis)); 
 
-$spis=array('addd','accd','abcd');
-pre(mysort($spis));
+$spis = array('addd','accd','abcd'); 
+pre(mysort($spis)); 
 
-$spis=array('addd','aadd','aaad');
-pre(mysort($spis));
+$spis = array('addd','aadd','aaad'); 
+pre(mysort($spis)); 
 
-$spis=array('addd','addd','addd');
-pre(mysort($spis));
+$spis = array('addd','addd','addd'); 
+pre(mysort($spis)); 
 
-$spis=array('1','2','3');
-pre(mysort($spis));
+$spis = array('1','2','3'); 
+pre(mysort($spis)); 
 
-$spis=array('321','231','123');
-pre(mysort($spis));
+$spis = array('321','231','123'); 
+pre(mysort($spis)); 
 
-$spis=array('12345','1234','123');
-pre(mysort($spis));
+$spis = array('12345','1234','123'); 
+pre(mysort($spis)); 
 
-$spis=array(3,2,1);
-pre(mysort($spis));
+$spis = array(3,2,1); 
+pre(mysort($spis)); 
 
 ?>
