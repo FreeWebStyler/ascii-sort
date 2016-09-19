@@ -1,4 +1,4 @@
-### Array sort in ASCII-table symbol code order written in PHP.
+### Array sort in ASCII-table symbol code order ported on PHP.
 
 For what? Just for ~~lulz~~ scientific purposes.
 
@@ -11,7 +11,9 @@ In 2_2_9.cpp file you can find my practical work on studying C/C++.
 
 ### Official Documentation
 
-~~I hope comments is enough to understand. To use - just run index.php.~~ Sorry, at this moment comments only on Russian.
+~~I hope comments is enough to understand. To use - just run index.php.~~
+
+Sorry, at this moment comments only on Russian.
 
 Hope you can understand by code.
 
